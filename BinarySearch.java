@@ -107,16 +107,76 @@ public class BinarySearch {
         }
         set.add(ans);
     }
+
+    public static int findSqrt(int n){
+        int low = 1;
+        int high = n;
+        int ans = 1;
+
+        while(low <= high){
+            int mid = low + (high-low)/2;
+
+            if(mid * mid <= n){
+                ans = Math.max(ans,mid);
+                low = mid+1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+        return ans;
+    }
+
+    //T.C. = O(log n).
+    public static int findNthPower(int mid, int n,int N){
+        long ans = 1;
+        for(int i=1;i<=N;i++){
+            ans = ans * mid;
+            if(ans > n){
+                //We do this check to stop now, once ans > n we don't need to calculate further, as all other
+                //futher calculation will be obviously greater than n, so stop, it'll prevent overflowing(in case)
+                //value becomes too large.
+                return 2; //Means this can't be look in area before it.
+            }
+        }
+         if(ans == n) return 1; //Means we've found the perfect Nth root.
+         return 0; //Means look in the area after it, the current value is smaller than n (ans < n).
+    }
+
+    public static int findNthRoot(int n,int N){
+        int low = 1;
+        int high = n;
+        
+        while (low <= high) {
+            int mid = low + (high-low)/2;
+
+            int midN = findNthPower(mid,n,N);
+            //If we've find the perfect Nth root of the integer.
+            if(midN == 1) return mid;
+            else if(midN == 0){
+                low = mid+1;
+            }
+            else {
+                high = mid-1;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello world");
         
-        int[] array = {3,5,8,15,19,19};
+       // int[] array = {3,5,8,15,19,19};
         //int ans = findLowerbound(array, 8);
         //System.out.println(ans);
-        int[] arr2 = {10,20,30,40,50};
-        HashSet<Integer> set = new HashSet<>();
-        floorAndCeil(arr2,set, 25);
-        System.out.println(set);
+       // int[] arr2 = {10,20,30,40,50};
+       // HashSet<Integer> set = new HashSet<>();
+        //floorAndCeil(arr2,set, 25);
+        //System.out.println(set);
+        //int ans = findSqrt(1515545);
+        int ans = findNthRoot(625, 6);
+        System.out.println(ans);
+
     }
      
 }
