@@ -47,6 +47,7 @@ public class LinkedListDS {
             }
     
             Node currNode = head;
+            //We can't just directly access the last index of linkedlist, that's why we've to go there by traversing over it.
             while(currNode.next != null){
                 currNode = currNode.next;
             }
@@ -312,9 +313,10 @@ public class LinkedListDS {
         public Node meetPoint(Node head){
              Node slow = head;
              Node fast = head;
-
+             Node prev = null; //It'll keep a track of the prev node of fast or slow pointer & we'll use this to remove cycle.
              while(fast != null && fast.next != null){
                  slow = slow.next;
+                 prev = fast;
                  fast = fast.next.next;
 
                  if(slow == fast){ 
@@ -322,7 +324,7 @@ public class LinkedListDS {
                  }
              }
 
-             return null;
+             return new Node[]{null,prev};
         }
 
         public void removeCycle(){
@@ -343,9 +345,9 @@ public class LinkedListDS {
                  meet = meet.next;
                  
              }
-
+             cycleStartNode = start;
              //When they have met
-             //prev.next = null;
+             prev.next = null;
              return cycleStartNode;
         }
 

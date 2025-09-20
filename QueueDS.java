@@ -231,49 +231,49 @@ public class QueueDS {
     public static void main(String[] args) {
         System.out.println("HEllo everyone!");
 
-        // QueueUsingArray q = new QueueUsingArray(5);
-        // q.add(1);
-        // q.add(2);
-        // q.add(3);
+        QueueUsingArray q = new QueueUsingArray(5);
+        q.add(1);
+        q.add(2);
+        q.add(3);
         
 
-        // while(!q.isEmpty()){
-        //     System.out.println(q.peek());
-        //      q.remove();
-        // }
+        while(!q.isEmpty()){
+            System.out.println(q.peek());
+             q.remove();
+        }
 
-    //     CircularQueueUsingArray cq = new CircularQueueUsingArray(5);
-    //     cq.add(1);
-    //     cq.add(2);
-    //     cq.add(3);
-    //     cq.add(4);
-    //     cq.add(5);
-    //     cq.remove();
-    //     cq.remove();
-    //     cq.add(6);
-    //     cq.add(7);
+        CircularQueueUsingArray cq = new CircularQueueUsingArray(5);
+        cq.add(1);
+        cq.add(2);
+        cq.add(3);
+        cq.add(4);
+        cq.add(5);
+        cq.remove();
+        cq.remove();
+        cq.add(6);
+        cq.add(7);
 
-    //    while(!cq.isEmpty()){
-    //      System.out.println(cq.peek());
-    //      cq.remove();
-    //    }
+       while(!cq.isEmpty()){
+         System.out.println(cq.peek());
+         cq.remove();
+       }
 
-    //Queue using LL.
-    // QueueUsingLL q = new QueueUsingLL();
+    Queue using LL.
+    QueueUsingLL q = new QueueUsingLL();
     
      
 
-    //Queue using collections fromework.
-    // Queue<Integer> q = new LinkedList<Integer>();
-    // Queue<Integer> q2 = new ArrayDeque<Integer>();
-    // q.add(0);
-    // q.add(1);
-    // q.add(2);
-    // q.remove();
-    // System.out.println(q.isEmpty());
-    // System.out.println(q.peek());
+    Queue using collections fromework.
+    Queue<Integer> q = new LinkedList<Integer>();
+    Queue<Integer> q2 = new ArrayDeque<Integer>();
+    q.add(0);
+    q.add(1);
+    q.add(2);
+    q.remove();
+    System.out.println(q.isEmpty());
+    System.out.println(q.peek());
 
-    //Queue using two stacks.
+    Queue using two stacks.
      
     QueueUsingStacks q = new QueueUsingStacks();
     q.add(1);

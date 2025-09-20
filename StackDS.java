@@ -1,57 +1,57 @@
 import java.util.*;
 
 public class StackDS {
-    // static class Node{
-    //      int data;
-    //      Node next;
+    static class Node{
+         int data;
+         Node next;
 
-    //      //create your constructor.
-    //      Node(int data){
-    //          this.data = data;
-    //          this.next = null;
-    //      }
-    // }
+         //create your constructor.
+         Node(int data){
+             this.data = data;
+             this.next = null;
+         }
+    }
 
-    // static class Stack{
-    //     static Node head;
+    static class Stack{
+        static Node head;
 
-    //      static boolean isEmpty(){
-    //          return head == null;
-    //      }
+         static boolean isEmpty(){
+             return head == null;
+         }
 
-    //      public void push(int data){
-    //          //Create your new node.
-    //          Node newNode = new Node(data);
+         public void push(int data){
+             //Create your new node.
+             Node newNode = new Node(data);
 
-    //          if(isEmpty()){
-    //              head = newNode;
-    //              return;
-    //          }
+             if(isEmpty()){
+                 head = newNode;
+                 return;
+             }
 
-    //          newNode.next = head;
-    //          head = newNode;
-    //      }
+             newNode.next = head;
+             head = newNode;
+         }
 
-    //      public int pop(){
-    //          if(isEmpty()){
-    //              return -1; //the stack is empty.
-    //          }
+         public int pop(){
+             if(isEmpty()){
+                 return -1; //the stack is empty.
+             }
              
-    //          int top = head.data;
+             int top = head.data;
             
-    //          head = head.next; //Update the head.
-    //          return top;
-    //      }
+             head = head.next; //Update the head.
+             return top;
+         }
 
-    //      public int peek(){
-    //          if(isEmpty()){
-    //             return -1;
-    //          }
+         public int peek(){
+             if(isEmpty()){
+                return -1;
+             }
 
-    //          int top = head.data;
-    //          return top;
-    //      }
-    // }
+             int top = head.data;
+             return top;
+         }
+    }
 
     public static void pushAtStackBottom(Stack<Integer> s,int e){
          if(s.empty()){

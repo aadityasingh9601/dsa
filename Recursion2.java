@@ -137,7 +137,7 @@ public class Recursion2 {
          char currChar = str.charAt(idx);
 
          //If currChar wants to come.
-            uniqueSubseq(str, idx+1, newStr+currChar,myHash);
+         uniqueSubseq(str, idx+1, newStr+currChar,myHash);
 
          //If currChar doesn't wants to come.
          uniqueSubseq(str, idx+1, newStr,myHash);

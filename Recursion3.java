@@ -60,7 +60,7 @@ public class Recursion3 {
         //Invite guest single
         int singleWays = callGuests(n-1);
 
-        //Invite in paris.
+        //Invite in pairs.
         int pairWays = (n-1) * callGuests(n-2);
 
         return singleWays + pairWays;
