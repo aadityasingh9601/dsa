@@ -107,27 +107,65 @@ public class BitMan {
 
         return count;
     }
+
+    public static int XORoneToN(int n){
+        //Method 1. Using basic iteration.
+        //T.C. = O(n), S.C. = O(1)
+
+        // int ans = 0;
+
+        // for(int i=1;i<=n;i++){
+        //     ans = ans ^ i;
+        // }
+
+        // return ans;
+
+        //Method 2. Find XOR of numbers from 1 to N and 
+        //observe the pattern. T.C. = O(1), S.C. = O(1).
+
+        if(n % 4 == 1){
+            return 1;
+        }
+        else if(n % 4 == 2){
+            return n+1;
+        }
+        else if(n % 4 == 3){
+            return 0;
+        }
+        else{
+            return n;
+        }
+    }
+
+    public static int XORofRange(int start, int end){
+        //Dry run the code to understand better.
+        return XORoneToN(start-1) ^ XORoneToN(end);
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello everyone");
+        // System.out.println("Hello everyone");
 
-        System.out.println(convertToBinary(13));
+        // System.out.println(convertToBinary(13));
 
-        System.out.println(convertToDecimal("1101"));
+        // System.out.println(convertToDecimal("1101"));
 
-        System.out.println(getBit(13, 2));
+        // System.out.println(getBit(13, 2));
 
-        System.out.println(setBit(13, 1));
+        // System.out.println(setBit(13, 1));
 
-        System.out.println(clearBit(13, 2));
+        // System.out.println(clearBit(13, 2));
 
-        System.out.println(toggleBit(13, 3));
+        // System.out.println(toggleBit(13, 3));
 
-        System.out.println(removeLastSetBit(12));
+        // System.out.println(removeLastSetBit(12));
 
-        System.out.println(checkPowerOf2(1289));
+        // System.out.println(checkPowerOf2(1289));
 
-        System.out.println(countSetBits1(15));
+        // System.out.println(countSetBits1(15));
 
-        System.out.println(countSetBits2(15));
+        // System.out.println(countSetBits2(15));
+
+        //System.out.println(XORoneToN(0));
+        System.out.println(XORofRange(4,7));
     }
 }
