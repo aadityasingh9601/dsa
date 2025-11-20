@@ -43,9 +43,41 @@ class MaxHeap{
         }
     }
 
+    //Heapify down.
+    public void heapifyDown(int i){
+        int largest = heap.get(i);
+        int leftChild = left(i);
+        int rightChild = right(i);
+
+        if(leftChild < heap.size() && heap.get(leftChild) > largest){
+            largest = leftChild;
+            heapifyDown(leftChild);
+        }
+
+        if(rightChild < heap.size() && heap.get(rightChild) > largest){
+            largest = rightChild;
+            heapifyDown(rightChild);
+        }
+
+        if(largest == heap.get(i)){
+            //means current i is the largest, means heap property is restored, return.
+            return;
+        }
+    }
+
     //Remove max el from heap.
     public int getMax(){
-        
+        //Swap the max el with the last element.
+        int max = heap.get(0);
+        swap(0,heap.size()-1);
+        //Remove the last element now.
+        heap.remove(heap.size()-1);
+
+        //To restore the heap property, heapify down.
+        heapifyDown(0);
+
+        return max;
+
     }
 
     //Peek max el of heap.
@@ -74,5 +106,8 @@ public class Heaps{
 
         System.out.println(maxHeap.getMax());
 
+        System.out.println(maxHeap.peekMax());
+
+        
     }
 }
