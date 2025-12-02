@@ -45,23 +45,25 @@ class MaxHeap{
 
     //Heapify down.
     public void heapifyDown(int i){
-        int largest = heap.get(i);
+        int largest = i;
         int leftChild = left(i);
         int rightChild = right(i);
 
-        if(leftChild < heap.size() && heap.get(leftChild) > largest){
+        //Compare the current node with both of its children and see which is largest.
+
+        if(leftChild < heap.size() && heap.get(leftChild) > heap.get(largest)){
             largest = leftChild;
-            heapifyDown(leftChild);
         }
 
-        if(rightChild < heap.size() && heap.get(rightChild) > largest){
+        if(rightChild < heap.size() && heap.get(rightChild) > heap.get(largest)){
             largest = rightChild;
-            heapifyDown(rightChild);
         }
 
-        if(largest == heap.get(i)){
-            //means current i is the largest, means heap property is restored, return.
-            return;
+        if(largest != i){
+            //Now whichever is largest, swap it to the parent position.
+            swap(i,largest);
+            //Heapify further for the children.
+            heapifyDown(largest);
         }
     }
 
